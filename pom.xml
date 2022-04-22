@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wang</groupId>
+    <artifactId>Spring-01</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spring-01-IOC1</module>
+        <module>Spring-02</module>
+        <module>Spring-03</module>
+        <module>Spring-04</module>
+        <module>Spring-05</module>
+        <module>Spring-06</module>
+        <module>Spring-07</module>
+        <module>Spring-08</module>
+        <module>Spring-09</module>
+        <module>Spring-10-AOP</module>
+        <module>Spring-11-MyBatis</module>
+        <module>Spring-12</module>
+        <module>Spring-13-transaction</module>
+        <module>spring-test</module>
+        <module>Spring-test2</module>
+        <module>Bean的生命周期</module>
+        <module>spring-14-纯注解事务</module>
+    </modules>
+
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.26</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>5.3.10</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.9.4</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

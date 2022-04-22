@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+<bean id="SqlImp" class="com.wang.dao.MySqlImp"/>
+<bean id="OracleImp" class="com.wang.dao.OracleImp"/>
+<bean id="DaoImp" class= "com.wang.dao.UserDaoImp"/>
+
+<bean id="UserServiceImp" class="com.wang.com.wang.service.UserServiceImp">
+    <property name="user" ref="DaoImp"/>
+</bean>
+</beans>

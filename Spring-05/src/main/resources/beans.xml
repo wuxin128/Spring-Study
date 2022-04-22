@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/beans/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/beans/spring-aop.xsd">
+
+    <bean id="cat" class="com.wang.pojo.Cat"/>
+    <bean id="dog" class="com.wang.pojo.Dog"/>
+
+    <!--  byName:会自动在上下文中查找，和自己对象set方法后面值对应的bean 的id
+            byType：会在上下文中自动查找和对象属性相同的bean，如果有两种一样的属性，会报错-->
+    <bean id="people" class="com.wang.pojo.People" autowire="byType">
+        <property name="name" value="小王"/>
+        <!-- 用了byName后，下面两句可省略；
+        <property name="cat" ref="cat"/>
+        <property name="dog" ref="dog"/>
+        -->
+    </bean>
+
+
+</beans>

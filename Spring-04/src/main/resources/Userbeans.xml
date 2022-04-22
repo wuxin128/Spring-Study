@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--  P 空间命名注入，可以直接注入属性的值：property-->
+    <!--  单例模式，只创建一个对象 -->
+    <bean id="user" class="com.wang.com.wang.pojo.User" p:name="老王" scope="singleton"/>
+    <!--  原型模式，每get一次创建一个新对象  -->
+    <!--  C 命名空间注入，通过构造器注入：construct-arg-->
+    <bean id="user2" class="com.wang.com.wang.pojo.User" c:name="神" scope="prototype"/>
+</beans>

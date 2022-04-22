@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="hello" class="com.wang.pojo.Hello">
+    </bean>
+    <!-- 使用util标签完成list集合的提取，这里要先导入约束 -->
+    <!-- 注意：集合中对象的赋值也是通过ref的方式 -->
+    <util:list id="bookList">
+        <value>罪与罚</value>
+        <value>月亮与六便士</value>
+        <value>行走人生</value>
+    </util:list>
+
+    <bean id="UserDaoDB2Imp" class="com.wang.dao.UserDaoDB2Imp" name="DB2"/><!-- 注意：这里name也是起别名-->
+    <bean id="UserDaoMySqlImp" class="com.wang.dao.UserDaoMysqlImp"/>
+    <bean id="UserDaoOracleImp" class="com.wang.dao.UserDaoOracleImp"/>
+
+    <bean id="UserServiceImp" class="com.wang.service.UserServiceImp">
+        <property name="userDao" ref="UserDaoMySqlImp"/>
+    </bean>
+
+    <alias name="UserServiceImp" alias="service"/>
+
+    <bean id="Address" class="com.wang.pojo.Address">
+        <property name="address">
+            <value>
+                <!-- 转义符号-->
+                <![CDATA[<<南京>>]]>
+            </value>
+        </property>
+    </bean>
+    <bean id="Student" class="com.wang.pojo.Student">
+        <property name="name" value="小王"/>
+        <!-- 注意：这里注入对象有两种方式，ref是外部bean的方式，还有一种内部bean的方式 -->
+        <!-- <property name="address">
+                    <pojo id="address" class="">
+                        <property name="" value="">
+                    </pojo>
+             </property> -->
+        <property name="address" ref="Address"/>
+        <!-- 级联赋值 -->
+        <property name="address.address" value="南京"/>
+        <property name="books">
+            <array>
+                <value>红楼梦</value>
+                <value>西游记</value>
+                <value>水浒传</value>
+                <value>三国演义</value>
+            </array>
+        </property>
+        <property name="hobbys">
+            <list>
+                <value>听歌</value>
+                <value>看电影</value>
+                <value>写代码</value>
+            </list>
+        </property>
+        <property name="card">
+            <map>
+                <entry key="1" value="张三"/>
+                <entry key="2" value="李四"/>
+                <entry key="3" value="王五"/>
+            </map>
+        </property>
+        <property name="games">
+            <set>
+                <value>lol</value>
+                <value>dota</value>
+                <value>cf</value>
+            </set>
+        </property>
+        <!-- 空值注入 -->
+        <property name="wife">
+            <null/>
+        </property>
+        <property name="info">
+            <props>
+                <prop key="学号">123</prop>
+                <prop key="性别">男</prop>
+                <prop key="姓名">小明</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

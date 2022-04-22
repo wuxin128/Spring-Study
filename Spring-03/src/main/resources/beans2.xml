@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- 通过index来进行有参构造 -->
+    <bean id="user" class="com.wang.com.wang.pojo.User" name="user3 u2 u5">
+        <constructor-arg index="0" value="老王来了!!!"/>
+    </bean>
+    <bean id="user2" class="com.wang.com.wang.pojo.User2">
+    </bean>
+    <!--id是bean的唯一标识符，相当于我们new的对象名
+    class：是bean 对象所对应的 类的全名，包含包名
+    name: 也是别名,而且可以同时取多个别名-->
+
+    <!--起别名-->
+    <alias name="user" alias="powerful"/>
+</beans>
